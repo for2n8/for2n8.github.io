@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Night Mode Audio Player</title>
     <style>
-        /* ... (CSS remains the same for the dark theme) ... */
-
         /* Reset and Base Styles */
         body {
             /* Full black background for optimal night viewing */
             background-color: #000000;
-            color: #AAAAAA; /* Very dark gray text for low light */
+            color: #68647a; /* Purple-gray text for low light */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -26,14 +24,14 @@
         .container {
             padding: 20px;
             /* Thin gray border outline for the main content area */
-            border: 1px solid #333333;
+            border: 1px solid #68647a;
             border-radius: 5px;
             text-align: center;
         }
 
         /* Welcome Message Styling */
         h1 {
-            color: #AAAAAA; /* Dim gray for the main message */
+            color: #68647a; /* Dim gray for the main message */
             margin-bottom: 20px;
             font-size: 1.5em;
         }
@@ -44,115 +42,23 @@
             filter: invert(100%) hue-rotate(180deg) brightness(50%);
             width: 100%;
             max-width: 400px;
-            margin-bottom: 20px; /* Space below audio player */
         }
 
-        /* Fullscreen Button Styling */
-        #fullscreen-button {
-            background-color: transparent;
-            color: #AAAAAA; /* Same dim gray as text */
-            /* Thin gray border outline */
-            border: 1px solid #333333;
-            padding: 8px 15px;
-            cursor: pointer;
-            font-size: 0.9em;
-            border-radius: 3px;
-            transition: background-color 0.2s; /* Subtle hover effect */
-        }
-
-        #fullscreen-button:hover {
-            background-color: #111111; /* Slightly darker on hover */
-        }
+        /* Style the standard HTML audio element outline (optional, as controls are complex) */
+        /* For simple objects, a thin border would be used. The audio player uses browser-native controls, 
+           which are difficult to theme consistently with CSS, so we use 'filter' for a dim effect. */
     </style>
 </head>
 <body>
 
-    <div class="container" id="page-container">
+    <div class="container">
         <h1>Welcome. Sweet dreams are made of rain.</h1>
         
-        <audio id="rain-audio" controls loop>
+        <audio controls autoplay loop>
             <source src="audio/copyright-free-rain-sounds-331497.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
-
-        <button id="fullscreen-button">
-            Go Fullscreen & Play (ESC to Exit)
-        </button>
     </div>
-
-    <script>
-        const audio = document.getElementById('rain-audio');
-        const fullscreenButton = document.getElementById('fullscreen-button');
-        const docElm = document.documentElement;
-
-        // --- Configuration for Fade-In ---
-        const FADE_DURATION = 5000; // 5 seconds (5000 milliseconds)
-        const STEPS = 100;
-        const VOLUME_INCREMENT = 1 / STEPS;
-        const INTERVAL_TIME = FADE_DURATION / STEPS;
-        
-        let fadeInterval = null;
-
-        function startFadeIn() {
-            // Only fade in if audio is currently playing and volume is zero
-            if (audio.paused) return; 
-
-            // Stop any current fade process
-            if (fadeInterval) clearInterval(fadeInterval);
-
-            audio.volume = 0; // Start volume at 0
-            
-            fadeInterval = setInterval(() => {
-                if (audio.volume < 1) {
-                    // Increase volume gradually
-                    audio.volume += VOLUME_INCREMENT;
-
-                    // Cap the volume at 1.0 to prevent overflow
-                    if (audio.volume >= 1) {
-                        audio.volume = 1;
-                        clearInterval(fadeInterval); // Stop the interval when full volume is reached
-                    }
-                }
-            }, INTERVAL_TIME);
-        }
-
-        // --- Event Handlers ---
-        
-        // 1. Fade in when the user clicks the browser's audio "Play" button
-        audio.addEventListener('play', startFadeIn);
-
-        // 2. Play and Fullscreen on button click
-        fullscreenButton.addEventListener('click', function() {
-            // Attempt to request fullscreen
-            if (docElm.requestFullscreen) {
-                docElm.requestFullscreen();
-            } else if (docElm.webkitRequestFullScreen) {
-                docElm.webkitRequestFullScreen();
-            } else if (docElm.mozRequestFullScreen) {
-                docElm.mozRequestFullScreen();
-            } else if (docElm.msRequestFullscreen) {
-                docElm.msRequestFullscreen();
-            }
-
-            // Start audio playback (this will trigger the 'play' event listener above)
-            // Note: Modern browsers require user interaction to play media, so this works well with the button click.
-            audio.play().catch(error => {
-                console.error("Audio playback failed:", error);
-                // Handle potential browser restrictions if 'play' is called programmatically
-            });
-        });
-
-        // Ensure the volume is reset if the user pauses and plays again, 
-        // to re-trigger the fade on the next 'play' event.
-        audio.addEventListener('pause', function() {
-            if (fadeInterval) {
-                clearInterval(fadeInterval);
-                fadeInterval = null;
-            }
-            // Optional: You could implement a fade-out here if desired.
-        });
-
-    </script>
 
 </body>
 </html>
