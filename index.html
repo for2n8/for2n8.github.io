@@ -42,11 +42,25 @@
             filter: invert(100%) hue-rotate(180deg) brightness(50%);
             width: 100%;
             max-width: 400px;
+            margin-bottom: 20px; /* Space below audio player */
         }
 
-        /* Style the standard HTML audio element outline (optional, as controls are complex) */
-        /* For simple objects, a thin border would be used. The audio player uses browser-native controls, 
-           which are difficult to theme consistently with CSS, so we use 'filter' for a dim effect. */
+        /* Fullscreen Button Styling */
+        #fullscreen-button {
+            background-color: transparent;
+            color: #AAAAAA; /* Same dim gray as text */
+            /* Thin gray border outline */
+            border: 1px solid #333333;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 0.9em;
+            border-radius: 3px;
+            transition: background-color 0.2s; /* Subtle hover effect */
+        }
+
+        #fullscreen-button:hover {
+            background-color: #111111; /* Slightly darker on hover */
+        }
     </style>
 </head>
 <body>
@@ -58,7 +72,33 @@
             <source src="audio/copyright-free-rain-sounds-331497.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
+
+        <button id="fullscreen-button">
+            Go Fullscreen (ESC to Exit)
+        </button>
     </div>
+
+    <script>
+        // Get the button element
+        const fullscreenButton = document.getElementById('fullscreen-button');
+
+        // Add an event listener to the button
+        fullscreenButton.addEventListener('click', function() {
+            // Get the root element of the document (the <html> tag)
+            const docElm = document.documentElement;
+
+            // Check if the browser supports the fullscreen API
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            } else if (docElm.mozRequestFullScreen) { /* Firefox */
+                docElm.mozRequestFullScreen();
+            } else if (docElm.webkitRequestFullScreen) { /* Chrome, Safari, and Opera */
+                docElm.webkitRequestFullScreen();
+            } else if (docElm.msRequestFullscreen) { /* IE/Edge */
+                docElm.msRequestFullscreen();
+            }
+        });
+    </script>
 
 </body>
 </html>
