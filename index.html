@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Mode Audio Player</title>
+    <style>
+        /* Reset and Base Styles */
+        body {
+            /* Full black background for optimal night viewing */
+            background-color: #000000;
+            color: #AAAAAA; /* Very dark gray text for low light */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container for content */
+        .container {
+            padding: 20px;
+            /* Thin gray border outline for the main content area */
+            border: 1px solid #333333;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Welcome Message Styling */
+        h1 {
+            color: #AAAAAA; /* Dim gray for the main message */
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        /* Audio Player Styling */
+        audio {
+            /* Make the audio player controls dim */
+            filter: invert(100%) hue-rotate(180deg) brightness(50%);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Style the standard HTML audio element outline (optional, as controls are complex) */
+        /* For simple objects, a thin border would be used. The audio player uses browser-native controls, 
+           which are difficult to theme consistently with CSS, so we use 'filter' for a dim effect. */
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome. Sweet dreams are made of rain.</h1>
+        
+        <audio controls autoplay loop>
+            <source src="audio/copyright-free-rain-sounds-331497.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+</body>
+</html>
