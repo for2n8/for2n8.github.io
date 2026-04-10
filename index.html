@@ -3,62 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Night Mode Audio Player</title>
-    <style>
-        /* Reset and Base Styles */
-        body {
-            /* Full black background for optimal night viewing */
-            background-color: #000000;
-            color: #68647a; /* Purple-gray text for low light */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        /* Container for content */
-        .container {
-            padding: 20px;
-            /* Thin gray border outline for the main content area */
-            border: 1px solid #68647a;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        /* Welcome Message Styling */
-        h1 {
-            color: #68647a; /* Dim gray for the main message */
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-
-        /* Audio Player Styling */
-        audio {
-            /* Make the audio player controls dim */
-            filter: invert(100%) hue-rotate(180deg) brightness(50%);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        /* Style the standard HTML audio element outline (optional, as controls are complex) */
-        /* For simple objects, a thin border would be used. The audio player uses browser-native controls, 
-           which are difficult to theme consistently with CSS, so we use 'filter' for a dim effect. */
-    </style>
+    <title>Nate's Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1>Welcome. Sweet dreams are made of rain.</h1>
-        
-        <audio controls autoplay loop>
-            <source src="audio/copyright-free-rain-sounds-331497.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+    <div class="grid">
+      <div class="h1container">
+        <h1>Hi, this is Nate's site.</h1>
+      </div>
+      <div class="maincontainer">
+        <h1>Container 2</h1>
+        Body Text test lorem ipsum stuff Idk what to type here test
+      </div>
+      <div class="maincontainer">
+        <h1>Testing</h1>
+        Body text
+      </div>
     </div>
-
 </body>
 </html>
