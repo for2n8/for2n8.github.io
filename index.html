@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nate's Website</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,13 +15,29 @@
         <h1>Hi, this is Nate's site.</h1>
       </div>
       <div class="maincontainer">
-        <h1>Container 2</h1>
-        Body Text test lorem ipsum stuff Idk what to type here test
+        <h1>ᛃ Welcome ᛃ</h1>
+        Everything on this website was created by me, by hand, without using AI (in ANY way) or copy/pasting other work. I want this site to replace my social media in a way, so each page's vibes, fonts, content, etc. have all been chosen and created by me.
       </div>
       <div class="maincontainer">
-        <h1>Testing</h1>
+        <h1>ᛃ Pages ᛃ</h1>
         Body text
       </div>
+      <div class="yellowtext", onclick="hidden_secret()">
+        (There are secrets)
+      </div>
+      <div id="secret1", style= "display: none">
+        𓊪𓏏𓎛𓀭 𓀨
+      </div>
     </div>
+<script>
+  function hidden_secret() {
+    var x = document.getElementById("secret1");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
 </body>
 </html>
