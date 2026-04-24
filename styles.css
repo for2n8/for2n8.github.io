@@ -1,7 +1,7 @@
 body {
   background-color: #272727;
   color: #17cf26;
-  font-family: 'Audiowide', sans-serif;
+  font-family: 'Share Tech Mono', sans-serif;
   margin: 0;
   padding: 8px;
   display: flex;
@@ -20,11 +20,13 @@ body {
   text-align: center;
   margin: 4px;
   background-color: rgba(242, 208, 13, 0.2);
+  font-family: 'Audiowide', sans-serif;
 }
 
 .maincontainer {
   padding: 24px;
   border-radius: 16px;
+  font-family: 'Share Tech Mono', sans-serif;
   text-align: center;
   margin: 4px 5%;
   background: #4f4f4f;
@@ -34,16 +36,21 @@ body {
 }
 .maincontainer h1 {
   color: #cdfbfe;
+  font-family: 'Audiowide', sans-serif;
 }
 
 .grid {
   padding: 4px;
   border: 1px solid #ffee8c;
   display: grid;
+  max-width: clamp(600px, 80vw, 800px);
 }
 
 h1 {
   color: #eec73a;
   margin-bottom: 20px;
   font-size: 1.5em;
+}
+.yellowtext {
+  color: #eec73a;
 }
