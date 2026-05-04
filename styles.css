@@ -1,6 +1,6 @@
 body {
-  background-color: #272727;
-  color: #17cf26;
+  background-color: #000000;
+  color: #DE8549;
   font-family: 'Share Tech Mono', sans-serif;
   margin: 0;
   padding: 8px;
@@ -14,7 +14,7 @@ body {
 
 /* Containers for content */
 .h1container {
-  padding: 8px;
+  padding: 0px;
   border: 1px solid #ffee8c;
   border-radius: 0px;
   text-align: center;
@@ -24,19 +24,27 @@ body {
 }
 
 .maincontainer {
-  padding: 24px;
+  padding: 16px;
   border-radius: 16px;
   font-family: 'Share Tech Mono', sans-serif;
   text-align: center;
-  margin: 4px 5%;
-  background: #4f4f4f;
+  margin: 4px;
+  background: #272727;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
   box-shadow:
-    inset 6px 6px 0px #646464,
-    inset -6px -6px 0px #161616;
+    inset 6px 6px 0px #303030,
+    inset -6px -6px 0px #101010;
 }
 .maincontainer h1 {
-  color: #cdfbfe;
+  color: #eec73a;
   font-family: 'Audiowide', sans-serif;
+  padding: 4px;
+  padding-right: 16px;
+  border-right-style: solid;
+  border-width: 1px;
 }
 
 .grid {
