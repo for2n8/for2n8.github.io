@@ -17,7 +17,7 @@
     <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
     
     <!-- Deck.gl (standalone bundle) -->
-    <script src="https://unpkg.com/deck.gl/dist.min.js"></script>
+    <script data-cfasync="false" src="https://unpkg.com/deck.gl/dist.min.js"></script>
 
     <!-- Basic Internal CSS -->
     <style>
@@ -200,7 +200,7 @@
       <p>Welcome to the map! This space is reserved for information about the project, the data sources, or any other details you want to share.</p>
     </div>
     
-    <script type="module">
+    <script data-cfasync="false" type="module">
       import * as maplibregl from 'https://unpkg.com/maplibre-gl/dist/maplibre-gl.mjs';
       import { Protocol } from 'https://unpkg.com/pmtiles@3/dist/index.js';
 
